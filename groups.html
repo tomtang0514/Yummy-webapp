@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <title>Yummy - My Groups</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" media="screen and (max-device-width: 400px)" href="/style_narrow.css" />
+    <link rel="stylesheet" media="screen and (min-device-width: 401px)" href="/style.css" />
+    <link href='http://fonts.googleapis.com/css?family=Dancing+Script:700' rel='stylesheet' type='text/css'>
+    <script type="text/javascript" src="/jquery.js"></script>
+    <script type="text/javascript" src="/page_navigate.js"></script>
+  </head>
+  <body>
+    <div id="groups-page" class="page">
+      <div class="header">
+        <span>My Groups</span>
+        <span id="groups-count">(6)</span>
+        <div class="right-header-box" onClick="openProfilePage()">
+            <img src="/profile.ico" width="38" height="38"/>
+        </div>
+      </div>
+      <div class="content">
+        <ul id="group-list" class="main-list">
+          <li>
+            <a href="#">
+              <div class="group-list-item">
+                <span>Sushi Lover</span>
+                <span class="grey-words">(5)</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="group-list-item">
+                <span>I love burger</span>
+                <span class="grey-words">(25)</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="group-list-item">
+                <span>CS498</span>
+                <span class="grey-words">(54)</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="group-list-item">
+                <span>Seriously?</span>
+                <span class="grey-words">(53)</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="group-list-item">
+                <span>Be happy</span>
+                <span class="grey-words">(99)</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="group-list-item">
+                <span>LOL, mom told me the name...</span>
+                <span class="grey-words">(10)</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div id="profile-page" class="page">
+      <div class="header">
+        <div class="left-header-box" onClick="openGroupsPage()">
+            <img src="/back.ico" width="38" height="38"/>
+        </div>
+        <span>My Profile</span>
+      </div>
+      <div class="content">
+        <div id="user-profile">
+          <div id="user-image">
+            <img src="/Yinshen.jpg" width="150" height="150"/>
+          </div>
+          <div id="user-name">Yinshen Robert Tang Jr.</div>
+        </div>
+        <ul id="history-list" class="main-list">
+          <li>
+              <div class="date-div">Apr 19</div>
+              <div class="history-div">Dairy Queen</div>
+              <div class="history-div">Good food</div>
+          </li>
+          <li>
+              <div class="date-div">Apr 18</div>
+              <div class="history-div">Woori Jib</div>
+              <div class="history-div">Noodle</div>
+          </li>
+          <li>
+              <div class="date-div">Apr 17</div>
+              <div class="history-div">DQ</div>
+          </li>
+          <li>
+              <div class="date-div">Apr 14</div>
+              <div class="history-div">The Beef Stand</div>
+              <div class="history-div">Dunkin Donuts</div>
+              <div class="history-div">IHOP</div>
+              <div class="history-div">Flat-Top</div>
+          </li>
+        </ul>
+        <div class="content">
+        </div>
+      </div>
+    </div>
+    <span id="name" class="hidden-block">{{name}}</span>
+    <span id="avatar_url" class="hidden-block">{{avatar_url}}</span>
+    <span id="token" class="hidden-block">{{token}}</span>
+  </body>
+</html>

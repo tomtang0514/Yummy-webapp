@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Chatroom for GroupMaker</title>
+    <link href="/style.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="/jquery.js"></script>
+    <script src='/_ah/channel/jsapi'></script>
+    {{script_file}}
+  </head>
+  <body>
+    <div id="chat-box">
+      <div id="chat-content">
+        <ul id="chat-content-list">
+        </ul>
+      </div>
+      <div id="warning">{{warning}}</div>
+      <div id="chat-panel">
+        <input type="text" id="user-chat-content" value="" placeholder="Chat with others..." />
+        <button onclick="sendChat()">Send</button>
+      </div>
+    </div>
+    <span id="name" class="hidden-block">{{name}}</span>
+    <span id="avatar_url" class="hidden-block">{{avatar_url}}</span>
+    <span id="token" class="hidden-block">{{token}}</span>
+  </body>
+</html>

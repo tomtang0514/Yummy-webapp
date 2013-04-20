@@ -1,0 +1,31 @@
+application: yummy-webapp
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /(.*\.css)
+  mime_type: text/css
+  static_files: css/\1
+  upload: css/(.*\.css)
+
+- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
+  static_files: image/\1
+  upload: image/(.*\.(bmp|gif|ico|jpeg|jpg|png))
+
+- url: /(.*\.js)
+  mime_type: text/javascript
+  static_files: script/\1
+  upload: script/(.*\.js)
+
+
+- url: /.*
+  script: yummy.app
+
+libraries:
+- name: jinja2
+  version: 2.6
+
+inbound_services:
+- channel_presence
