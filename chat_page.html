@@ -1,21 +1,148 @@
 <html>
   <head>
-    <title>Chatroom for GroupMaker</title>
+    <title>Yummy - Chat Group</title>
     <link href="/style.css" rel="stylesheet" type="text/css" />
+    <!--<link rel="stylesheet" media="screen and (max-device-width: 400px)" href="/style_narrow.css" />-->
+    <link rel="stylesheet" media="screen and (min-device-width: 401px)" href="/style.css" />
+    <link href='http://fonts.googleapis.com/css?family=Dancing+Script:700' rel='stylesheet' type='text/css'>
     <script type="text/javascript" src="/jquery.js"></script>
-    <script src='/_ah/channel/jsapi'></script>
-    {{script_file}}
+    <script type="text/javascript" src="/page_navigate.js"></script>
   </head>
   <body>
-    <div id="chat-box">
-      <div id="chat-content">
-        <ul id="chat-content-list">
+    <div id="chat-page" class="page">
+      <div class="header">
+        <div class="left-header-box" onClick="window.open('/', '_self')">
+            <img src="/back.ico" width="38" height="38" />
+        </div>
+        <span>Group Name</span>
+        <span id="groups-count">(5)</span>
+        <div class="right-header-box" onClick="openGroupInfoPage()">
+            <img src="/group_info.ico" width="38" height="38" />
+        </div>
+      </div>
+      <div class="content">
+        <ul id="chat-list" class="main-list">
+          <li class="my-msg">
+            <div class="chat-avatar">
+              <img src="/Yinshen.jpg" width="50" height="50" />
+            </div>
+            <div class="chat-content-box">
+              <div class="chat-content">
+                <span>Hello!</span>
+              </div>
+              <div class="comment-triangle"></div>
+            </div>
+          </li>
+          <li>
+            <div class="chat-avatar">
+              <img src="/xiaodan.jpg" width="50" height="50" />
+            </div>
+            <div class="chat-content-box">
+              <div class="chat-content">
+                <span>What's up?</span>
+              </div>
+              <div class="comment-triangle"></div>
+            </div>
+          </li>
+          <li>
+            <tr><td>
+            <div class="chat-avatar">
+              <img src="/xiaodan.jpg" width="50" height="50" />
+            </div>
+          </td>
+        </td>
+            <div class="chat-content-box">
+              <div class="chat-content">
+                <span>Would you like to go to sushi rock for dinner? I miss the curry dokasu there...</span>
+              </div>
+              <div class="comment-triangle"></div>
+            </div>
+          </td></tr>
+          </li>
+          <li class="my-msg">
+            <div class="chat-avatar">
+              <img src="/Yinshen.jpg" width="50" height="50" />
+            </div>
+            <div class="chat-content-box">
+              <div class="chat-content">
+                <span>I just eat sushi for lunch. How about flat-top?</span>
+              </div>
+              <div class="comment-triangle"></div>
+            </div>
+          </li>
         </ul>
       </div>
-      <div id="warning">{{warning}}</div>
-      <div id="chat-panel">
-        <input type="text" id="user-chat-content" value="" placeholder="Chat with others..." />
-        <button onclick="sendChat()">Send</button>
+      <div id="input-box" class="footer">
+        <div id="popup-box">
+          <div class="popup-button-box">
+            <img src="/burger.ico" width="50" height="50" />
+          </div>
+          <div class="popup-button-box">
+            <img src="/think.ico" width="50" height="50" />
+          </div>
+          <div class="popup-button-box">
+            <img src="/brush.ico" width="50" height="50" />
+          </div>
+          <div class="popup-button-box">
+            <img src="/location.ico" width="50" height="50" />
+          </div>
+          <div class="popup-triangle"></div>
+        </div>
+        <div class="left-footer-box" onClick="openPopupBox()">
+          <img src="/plus.ico" width="28" height="28" />
+        </div>
+        <div id="footer-input-box">
+          <input type="text" id="input-content" value="" placeholder="chat with others..." />
+        </div>
+        <div class="right-footer-box">
+          <img src="/paper_plane.png" width="28" height="28" />
+        </div>
+      </div>
+    </div>
+    <div id="group-info-page" class="page">
+      <div class="header">
+        <div class="left-header-box" onClick="openChatPage()">
+            <img src="/back.ico" width="38" height="38"/>
+        </div>
+        <span>Group Members</span>
+        <span id="groups-count">(6)</span>
+      </div>
+      <div class="content">
+        <div id="group-members">
+          <div class="member-profile">
+            <div class="member-image">
+              <img src="/Yinshen.jpg" width="100" height="100"/>
+            </div>
+            <div class="member-name">Yinshen Robert Tang Jr.</div>
+          </div>
+          <div class="member-profile">
+            <div class="member-image">
+              <img src="/Yinshen.jpg" width="100" height="100"/>
+            </div>
+            <div class="member-name">Tom Tang</div>
+          </div>
+          <div class="member-profile">
+            <div class="member-image">
+              <img src="/xiaodan.jpg" width="100" height="100"/>
+            </div>
+            <div class="member-name">Xiaodan Zhang</div>
+          </div>
+          <div class="member-profile">
+            <div class="member-image">
+              <img src="/Yinshen.jpg" width="100" height="100"/>
+            </div>
+            <div class="member-name">Yinshen</div>
+          </div>
+          <div class="member-profile">
+            <div id="add-member" class="member-image">
+              <img src="/member.ico" width="70" height="70"/>
+            </div>
+            <div class="member-name">Add +</div>
+          </div>
+        </div>
+        <div class="content">
+          <button class="red-button" onClick="quitGroup()">Quit Group</button>
+        </div>
       </div>
     </div>
     <span id="name" class="hidden-block">{{name}}</span>
