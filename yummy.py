@@ -17,7 +17,7 @@ class MainPage(webapp2.RequestHandler):
     def get(self):
         template_values = {"warning": "Building Channel...", 
                               "script_file": script_file}
-        template = jinja_environment.get_template("chat_page.html")
+        template = jinja_environment.get_template("welcome.html")
         self.response.out.write(template.render(template_values))
 
 class LoginPage(webapp2.RequestHandler):

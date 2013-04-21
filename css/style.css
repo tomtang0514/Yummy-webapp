@@ -110,6 +110,38 @@ html, body {
 	overflow-x: hidden;
 }
 
+#logo {
+	width: 100%;
+	height: 160px;
+}
+
+#logo h1 {
+	width: 100%;
+	font-family: 'Dancing Script', cursive;
+	font-weight: bold;
+	font-size: 72px;
+	color: #D35400;
+	text-shadow: 2px 2px 2px #D35400;
+	text-align: center;
+}
+
+#description {
+	width: 100%;
+	height: 150px;
+}
+
+#description p {
+	margin: 0px 50px;
+	font-size: 16px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+	font-weight: 300;
+}
+
+#login-flow {
+	margin: 20px auto;
+	text-align: center;
+}
+
 .main-list {
 	list-style: none;
 	padding: 0px;
@@ -279,6 +311,19 @@ li.my-msg .chat-content {
 	box-shadow: 0px 0px 5px #D8D8D8;
 }
 
+li .special-action>.chat-content {
+	color: #FFFFFF;
+	background-color: #3498DB;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#3498DB), to(#2980B9));
+	background: -webkit-linear-gradient(top, #3498DB, #2980B9);
+	background: -moz-linear-gradient(top, #3498DB, #2980B9);
+	background: -ms-linear-gradient(top, #3498DB, #2980B9);
+	background: -o-linear-gradient(top, #3498DB, #2980B9);
+	background: linear-gradient(top, #3498DB, #2980B9);
+	border: 1px solid #2980B9;
+	box-shadow: 0px 0px 5px #2980B9;
+}
+
 .comment-triangle {
 	position: absolute;
 	top: 20px;
@@ -295,6 +340,22 @@ li.my-msg .comment-triangle {
 	left: -9px; 
 	border-right: 10px solid #D8D8D8;
 	border-left: none;
+}
+
+.special-action>.comment-triangle {
+	border-left: 10px solid #2980B9;
+	border-right: none;
+}
+
+li.my-msg .special-action>.comment-triangle {
+	border-right: 10px solid #2980B9;
+	border-left: none;
+}
+
+.special-action a {
+	text-decoration: none;
+	border-bottom: 2px dashed #FFFFFF;
+	color: #FFFFFF;
 }
 
 #group-members {
