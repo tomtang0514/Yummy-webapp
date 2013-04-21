@@ -3,9 +3,15 @@
 from google.appengine.ext import ndb
 from google.appengine.api import channel
 from google.appengine.api import memcache
+from google.appengine.api import urlfetch
 import json
 import re
 import conf
+import urllib
+import base64
+import hmac
+import hashlib
+import time
 
 _USER_FIELDS = u'name, email, picture'
 class User(ndb.Model):
@@ -17,13 +23,15 @@ class User(ndb.Model):
     yummy_list = ndb.TextProperty()
     yummy_history = ndb.TextProperty()
     """
-    user_id = ndb.StringProperty(required=True)
+    facebook_id = ndb.StringProperty(required=True)
     access_token = ndb.StringProperty(required=True)
     name = ndb.StringProperty(required=True)
     picture = ndb.StringProperty(required=True)
     email = ndb.StringProperty()
     # not include anything that's related to friends
 
+    
+    '''    
     def refresh_data(self):
         me = Facebook().api(u'/me', 
             {u'fields':_USER_FIELDS, u'access_token':self.access_token})
@@ -31,12 +39,13 @@ class User(ndb.Model):
         self.name = me[u'name']
         self.picture = me[u'picture']
         self.email = me.get(u'email')
-        return self.put() 
+        return self.put()
+    ''' 
 
-    def init_user(self, name, facebook_id, avatar_url):
+    def init_user(self, name, facebook_id, picture):
         self.name = name
         self.facebook_id = facebook_id
-        self.avatar_url = avatar_url
+        self.picture = picture
         self.groups = "[]"
         self.yummy_list = "[]"
         self.yummy_history = "[]"
@@ -75,6 +84,42 @@ class User(ndb.Model):
             history = [time, restaurant_key]
             yummy_history.append(history)
         self.yummy_history = json.dumps(yummy_history)
+
+def init_facebook(self):
+        facebook = Facebook()
+        user = None
+
+        if u'signed_request' in self.request.POST:
+            facebook.load_signed_request(self.request.get('signed_request'))
+            # we reset the method to GET because a request from facebook with a
+            # signed_request uses POST for security reasons, despite it
+            # actually being a GET. in webapp causes loss of request.POST data.
+            self.request.method = u'GET'
+            #self.set_cookie(
+            #    'u', facebook.user_cookie, datetime.timedelta(minutes=1440))
+        elif 'u' in self.request.cookies:
+            facebook.load_signed_request(self.request.cookies.get('u'))
+        # load/create a user object
+
+        if facebook.user_id:
+            user = user.get_by_key_name(facebook.user_id) # get the user entity
+            if user:
+                # update stored access_token
+                if facebook.access_token and facebook.access_token != user.access_token:
+                    user.access_token = facebook.access_token
+                    user.put()
+                if not facebook.access_token:
+                    facebook.access_token = user.access_token
+
+            if not user and facebook.access_token:
+                me = facebook.api(u'/me', {u'fields': _USER_FIELDS})
+                user = User()
+                user.init_user(me[u'name'], facebook.user_id, me[u'picture'])
+                user.access_token = facebook.access_token
+                #user = User(key_name=facebook.user_id, ser_id=facebook.user_id, access_token=facebook.access_token,name=me[u'name'], email=me.get(u'email'), picture=me[u'picture']) 
+                user.put()
+
+
 
 class Group(ndb.Model):
     name = ndb.StringProperty()
