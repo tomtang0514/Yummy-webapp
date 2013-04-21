@@ -24,10 +24,10 @@ window.fbAsyncInit = function() {
 		    	alert(img_link);
 		    	// alert(response.gender + " " + response.updated_time + " ");
 
-		    	var image = document.getElementById('image');
-              	image.src = 'https://graph.facebook.com/' + response.id + '/picture?type=large';
-              	var name = document.getElementById('name');
-              	name.innerHTML = response.name
+		    	//var image = document.getElementById('image');
+              	//image.src = 'https://graph.facebook.com/' + response.id + '/picture?type=large';
+              	//var name = document.getElementById('name');
+              	//name.innerHTML = response.name
 			});
 
 			// another way to fetch the picture
