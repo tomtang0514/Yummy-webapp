@@ -31,9 +31,9 @@ window.fbAsyncInit = function() {
 			});
 
 			// another way to fetch the picture
-			/* FB.api('/me/picture?type=large', function(response) {
+			 FB.api('/me/picture?type=large', function(response) {
 		    	console.log(response.data.url);
-			}); */ 
+			});  
 
 
 			// connected

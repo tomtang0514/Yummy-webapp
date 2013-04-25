@@ -9,10 +9,10 @@
 	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 	<META HTTP-EQUIV="CACHE-CONTROL" CONTENT="PUBLIC">
 	<meta name="description" content="A Chatting App Knows What to Eat." />
-	<link rel="shortcut icon" href="image/favicon.ico">
-	<link rel="bookmark" href="images/favicon.ico">
+	<link rel="shortcut icon" href="/favicon.ico">
+	<link rel="bookmark" href="/favicon.ico">
 
-	<script type="text/javascript" src="js/fb.js"></script>
+	<script type="text/javascript" src="/fb.js"></script>
 </head>
 <body>
 	<div id="login-page" class="page">
@@ -26,16 +26,17 @@
       	</div>
       	<div id="login-flow">
         	<fb:login-button perms="email,offline_access" show-faces="true" size="xlarge" data-width="120"></fb:login-button>
-        	<br><br>
+          <!-- <div class="fb-login-button" data-show-faces="true" data-width="200" data-max-rows="1"></div>
+        	--><br><br>
         	<div class="fb-like" data-send="true" data-width="300" data-show-faces="true" data-font="arial"></div>
       	</div>
     </div>	
 
-	<!-- <div align="center">
+	 <div align="center">
         <img id="image"/>
         <div id="name"></div>
-    </div> -->
+    </div>
 
- 	<!-- <button id="fb-logout" onclick="logout()">Log out</button> -->
+ 	 <button id="fb-logout" onclick="logout()">Log out</button>
 </body>
 </html>

@@ -27,4 +27,4 @@ FACEBOOK_APP_SECRET = '3bc493a2995b495c69c20204469d4c97'
 EXTERNAL_HREF = 'http://yummy-webapp.appspot.com/'
 
 # Facebook User IDs of admins. The poor mans admin system.
-ADMIN_USER_IDS = ['512646986']
+#ADMIN_USER_IDS = ['512646986']

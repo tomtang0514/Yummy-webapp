@@ -22,15 +22,11 @@ class MainPage(webapp2.RequestHandler):
 
 class LoginPage(webapp2.RequestHandler):
     def get(self):
-
+        return
 
 
     def post(self):
-        user = User.query(User.user_id == "user_id").get()
-        if user == None:
-            user = User()
-            user.init_user()
-        user.put()
+        return
 
 class ChatPage(webapp2.RequestHandler):
     def get(self):

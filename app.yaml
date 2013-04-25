@@ -10,9 +10,9 @@ handlers:
   static_files: css/\1
   upload: css/(.*\.css)
 
-- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png))
+- url: /(.*\.(bmp|gif|ico|jpeg|jpg|png|ico))
   static_files: image/\1
-  upload: image/(.*\.(bmp|gif|ico|jpeg|jpg|png))
+  upload: image/(.*\.(bmp|gif|ico|jpeg|jpg|png|ico))
 
 - url: /(.*\.js)
   mime_type: text/javascript
